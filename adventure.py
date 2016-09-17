@@ -3,14 +3,13 @@ import json
 from input import InputReader
 
 def speak(text):
+    assert not '"' in text, "Text cannot contain \""
     os.system("espeak \"{}\"".format(text))
-
-
 
 class TwineEngine:
     def __init__(self,filename):
         with open('story.json'):
-            self.story = json.loads()
+            self.story = json.loads("story.json")
         self.vars = []
         self.current = self.interpret_text_codes(self.story["passages"][0]["text"])
 
@@ -108,3 +107,4 @@ class Situation():
         return self.choices[index][1]
 
 if __name__ == "__main__":
+    TwineEngine().run()
