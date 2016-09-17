@@ -1,10 +1,11 @@
 import os
 import json
 from input import InputReader
+import subprocess as sp
 
 def speak(text):
     assert not '"' in text, "Text cannot contain \""
-    os.system("espeak \"{}\"".format(text))
+    sp.run(("espeak","\"{}\"".format(text)))
 
 class TwineEngine:
     def __init__(self,filename='story.json'):
