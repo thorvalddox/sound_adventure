@@ -7,8 +7,8 @@ def speak(text):
     os.system("espeak \"{}\"".format(text))
 
 class TwineEngine:
-    def __init__(self,filename):
-        with open('story.json'):
+    def __init__(self,filename='story.json'):
+        with open(filename):
             self.story = json.loads("story.json")
         self.vars = []
         self.current = self.interpret_text_codes(self.story["passages"][0]["text"])
