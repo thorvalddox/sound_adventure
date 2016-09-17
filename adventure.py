@@ -23,11 +23,13 @@ class TwineEngine:
     def whereAmI(self):
         self.current.tell()
     def run(self):
+        self.whereAmI()
         for key in InputReader()():
             if key == ".":
                 self.whereAmI()
             elif key in "0123456789":
                 self.goto(self.current.get_choice(int(key)))
+                self.whereAmI()
             elif key == "<":
                 return
 
