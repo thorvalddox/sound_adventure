@@ -6,6 +6,7 @@ import subprocess as sp
 def speak(text):
     assert not '"' in text, "Text cannot contain \""
     sp.run(("espeak","\"{}\"".format(text)))
+    print(text)
 
 class TwineEngine:
     def __init__(self,filename='story.json'):
