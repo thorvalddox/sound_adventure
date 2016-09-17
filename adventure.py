@@ -5,7 +5,7 @@ import subprocess as sp
 
 def speak(text):
     assert not '"' in text, "Text cannot contain \""
-    sp.call(("espeak","\"{}\"".format(text)))
+    sp.call(("espeak","\"{}\"".format(text),"--stdout","|","aplay","-D","sysdefault"))
     print(text)
 
 class TwineEngine:
