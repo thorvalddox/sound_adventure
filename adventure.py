@@ -103,7 +103,7 @@ class Situation():
         self.text = self.text + "\n" + t.strip()
     def tell(self):
         speak(self.text)
-        for i,(c,l) in self.choices:
+        for i,(c,l) in enumerate(self.choices):
             speak("press {} to {}".format(i,c))
     def add_choice(self,text,to):
         self.choices.append((text.strip(),to.strip()))
